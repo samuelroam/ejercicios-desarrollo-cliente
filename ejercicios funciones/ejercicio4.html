@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		let grados
+		let convertir = (grados, tipo)=>{
+			grados=Math.floor(Math.random()*120)
+			if(tipo=="celsius"){//en caso de que sean grados celsius
+				let Cel = grados//esto se puede mejorar, pero pereza, asi por ahora funciona
+				let CelToFar =(Cel * 9 / 5) + 32 //fórmula para pasar de grados celsius a farenheit
+				console.log("Se han introducido "+Cel+" grados Celsius")
+				console.log(CelToFar)
+
+			}else if(tipo=="farenheit"){//En caso de que sean grados farenheit
+				let Far = grados//esto se puede mejorar también, pero asi tambien funciona
+				let FarToCel =(Far-32)*5/9//formula para pasar de grados farenheit a celsius
+				console.log("Se han introducido "+Far+" grados Farenheit")
+				console.log(FarToCel)
+			}
+		}
+		//Función para hacer aleatorio si son grados celsius o farenheit
+		let tipoDeGrado=()=>{
+			let count=Math.floor(Math.random()*2)
+			if(count==0)
+				type="celsius"
+			else
+				type="farenheit"
+			return type
+		}
+		
+		for(let i =0;i<3;i++)
+			convertir (grados,tipoDeGrado())
+	</script>
+</head>
+<body>
+
+</body>
+</html>

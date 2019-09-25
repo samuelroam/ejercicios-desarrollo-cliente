@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+		let edadHumano //declaramos variable de edad del humano
+		let calculoedad = (edadHumano, animal) =>{ //calcula la edad del animal al pasarle la edad en años humanos
+			if(animal=="perro"){
+
+			let edadPerro = edadHumano*7 //la edad del perro son 7 años cada año humano
+			console.log("tu perro tiene "+edadPerro+" años")
+		}else if (animal=="gato"){ //un año humano son 4 gatunos a partir de los 2 años humanos
+			let edadGato = (edadHumano*4)+18
+			console.log("tu gato tiene "+edadGato+ "años")
+		}
+		}
+		calculoedad(8, "gato")
+	</script>
+</head>
+<body>
+
+</body>
+</html>

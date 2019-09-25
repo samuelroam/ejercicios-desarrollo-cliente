@@ -5,12 +5,12 @@
 	<script type="text/javascript">
 		let nombre = "Samuel"
 		let apellido = "Rodriguez"
-		let hijos = Math.floor(Math.random()*4)
+		let hijos = Math.floor(Math.random()*4)//función de numero aleatorio redondeado, de 0 a 3
 		let ciudades = ["Entrepiernas", "Salsipuedes","Villapene","Kagar","Peor es nada", "Guarroman"]  //Son nombres reales de ciudades y pueblos
-		let ciudad = ciudades[Math.floor(Math.random()*7)]
+		let ciudad = ciudades[Math.floor(Math.random()*7)]//no me funcionaba el ciudades.length, asi que lo dejé con el numero de ciudades contadas "a mano"
 
 		let adivina =()=>{
-			for (let i=0;i<=4;i++){
+			for (let i=0;i<3;i++){//bucle que se repite 3 veces
 			console.log("Hola "+nombre+" "+apellido+", vas a tener "+hijos+" hijos y vivirás en la ciudad de "+ciudad)
 	}
 		}
