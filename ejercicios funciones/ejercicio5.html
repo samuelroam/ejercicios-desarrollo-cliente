@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		let triangulo=(maximo)=>{
+			for (let i =0;i<=maximo;i++){
+				document.writeln("*<br>")
+				for (let o =0;o<=i;o++){
+					document.write("*")
+				}
+				for (let p=i;p>=0;p--)
+					document.write("+")
+			
+			for (let u=i;u>=0;u--)
+					document.write("-")
+			}
+		
+		let maximo = prompt("introduce el numero de filas maximas para el triangulo")
+		triangulo(maximo)
+	</script>
+</head>
+<body>
+
+</body>
+</html>
