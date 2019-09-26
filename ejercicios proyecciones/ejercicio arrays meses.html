@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
+		meses.push("infierano")
+		console.log(meses.length)
+		var i=meses.indexOf("marzo")
+		meses.splice(i,1)
+		document.write(meses)
+		var numero_mes=prompt("Introduce el numero del mes que quieres visualizar")-1
+		document.write("<br>"+meses[numero_mes])
+		
+		meses.push("infierano")
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
