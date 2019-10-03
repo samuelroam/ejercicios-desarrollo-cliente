@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form1</title>
+</head>
+<body>
+<form>
+	<fieldset>
+			<legend>Trabajar con cajas</legend>
+			<label>Nombre : </label><input id="nombre" name="nombre" type="text" placeholder="Introduce tu nombre"> 
+		</fieldset>
+		
+		<fieldset>
+			<label>Material de la caja :</label>
+				<select name="material" id="materiales">
+					<option value="madera">Madera</option>
+					<option value="metal">Metal</option>
+					<option value="plastico">Plastico</option>
+				</select>
+		</fieldset>
+		
+		<fieldset>
+			<p>Selecciona una dimensión de la caja</p>
+			<input type="radio" name="tamano" value="pequena" checked><label>Pequeña</label>
+			<input type="radio" name="tamano" value="mediana"><label>Mediana</label>
+			<input type="radio" name="tamano" value="grande"><label>Grande</label>
+		</fieldset>
+
+		<fieldset>
+			<p>comentarios</p>
+			<textarea name="comment" id="comment"></textarea>
+	</fieldset>	
+
+	<input type="button" name="subir" value="subir" onClick="env()">
+
+	<aside>
+		<h2>Contenidos de los controles</h2>
+		<p  id="resultext">Espacio para tu texto, pulsa en cada boton.</p>
+	</aside>
+
+</form>
+<script type="text/javascript">
+		var vtxt = document.getElementById("resultext");
+
+
+		function env(){
+
+            // parte del nombre
+            var vnombre = document.getElementById("nombre");
+			if(typeof(vnombre.value)!="string" || vnombre.value===""){
+				vtxt.innerHTML = "<b>Introduzca un nombre válido</b>";			
+			}
+			else{
+				vtxt.innerHTML = "Su nombre es <i>"+vnombre.value+"</i>";
+			}
+
+
+			// parte del material
+			var vmaterial = document.getElementById("materiales");
+			vtxt.innerHTML += "<p>El texto del elemento seleccionado es <i>"+vmaterial.options[vmaterial.selectedIndex].innerHTML+"</i></p>";
+
+
+        	//parte del tamaño
+        	var vradio = document.querySelectorAll("input[type='radio']");
+        	for(i=0;i<vradio.length;i++){
+                if(vradio[i].checked==true)
+                vtxt.innerHTML += "<p>El tamaño deseado es <i>"+vradio[i].value+"</i></p>";
+            }
+            // parte del comentario
+            var vcomment = document.getElementById("comment")
+            vtxt.innerHTML += "<p>Su comentario es: "+vcomment.value+"</p>";
+
+
+
+
+
+
+
+        }
+		
+</script>
+</body>
+</html>
