@@ -4,27 +4,30 @@
 	<title></title>
 </head>
 <body>
-	<form>
+	<form method="get">
 		<fieldset>
 			<h2>¿Cual es la mejor descripción de una variable?</h2>
 			<input type="radio" name="p1" value="a1" checked><label>Un método para unir cadenas</label><br>
 			<input type="radio" name="p1" value="b1"><label>Le peprmite almacenar información para que pueda ser reutilizada en todo el programa</label><br>
 			<input type="radio" name="p1" value="c1"><label>Le permite tomar una decisión basada en una condición</label><br>
 		</fieldset>
+
 		<fieldset>
 			<h2>¿Cual es la mejor descripción de la concatenacion?</h2>
 			<input type="radio" name="p2" value="a2" checked><label>Un método para unir cadenas</label><br>
 			<input type="radio" name="p2" value="b2"><label>Le peprmite almacenar información para que pueda ser reutilizada en todo el programa</label><br>
 			<input type="radio" name="p2" value="c2"><label>Le permite tomar una decisión basada en una condición</label><br>
 		</fieldset>
+
 		<fieldset>
 			<h2>¿Cual es la mejor descripción de la instrucción if?</h2>
 			<input type="radio" name="p3" value="a3" checked><label>Un método para unir cadenas</label><br>
 			<input type="radio" name="p3" value="b3"><label>Le peprmite almacenar información para que pueda ser reutilizada en todo el programa</label><br>
 			<input type="radio" name="p3" value="c3"><label>Le permite tomar una decisión basada en una condición</label><br>
 		</fieldset>
-		<input type="button" name="solucion" onClick="check()">
+		<input type="button" value="Solucion" name="solucion" onClick="check()">
 	</form>
+
 	<h3>Aquí saldrán las respuestas</h3>
 	<p id="txt"></p>
 	<script type="text/javascript">
@@ -59,7 +62,15 @@
 						aciertos++
 				}
 			}
-			texto.innerHTML += " Por lo tanto, su puntuación es de <b>"+aciertos+"</b> puntos."
+			texto.innerHTML += " Por lo tanto, su puntuación es de <b>"+aciertos+"</b> puntos.<br>"
+			if (aciertos===0)
+				texto.innerHTML += "No creo que hayas estudiado"
+			else if (aciertos === 1)
+				texto.innerHTML += "Necesitas estudiar mas tiempo, intentalo de nuevo"
+			else if (aciertos === 2)
+				texto.innerHTML += "Vas por buen camino"
+			else
+				texto.innerHTML += "¡Eres un profesional de JavaScript!"
 		}
 
 	</script>
