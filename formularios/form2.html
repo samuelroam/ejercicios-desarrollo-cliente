@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<h2>¿Cual es la mejor descripción de una variable?</h2>
+			<input type="radio" name="p1" value="a1" checked><label>Un método para unir cadenas</label><br>
+			<input type="radio" name="p1" value="b1"><label>Le peprmite almacenar información para que pueda ser reutilizada en todo el programa</label><br>
+			<input type="radio" name="p1" value="c1"><label>Le permite tomar una decisión basada en una condición</label><br>
+		</fieldset>
+		<fieldset>
+			<h2>¿Cual es la mejor descripción de la concatenacion?</h2>
+			<input type="radio" name="p2" value="a2" checked><label>Un método para unir cadenas</label><br>
+			<input type="radio" name="p2" value="b2"><label>Le peprmite almacenar información para que pueda ser reutilizada en todo el programa</label><br>
+			<input type="radio" name="p2" value="c2"><label>Le permite tomar una decisión basada en una condición</label><br>
+		</fieldset>
+		<fieldset>
+			<h2>¿Cual es la mejor descripción de la instrucción if?</h2>
+			<input type="radio" name="p3" value="a3" checked><label>Un método para unir cadenas</label><br>
+			<input type="radio" name="p3" value="b3"><label>Le peprmite almacenar información para que pueda ser reutilizada en todo el programa</label><br>
+			<input type="radio" name="p3" value="c3"><label>Le permite tomar una decisión basada en una condición</label><br>
+		</fieldset>
+		<input type="button" name="solucion" onClick="check()">
+	</form>
+	<h3>Aquí saldrán las respuestas</h3>
+	<p id="txt"></p>
+	<script type="text/javascript">
+		
+		var texto = document.getElementById("txt")
+		var r1 = document.getElementsByName("p1");
+		var r2 = document.getElementsByName("p2");
+		var r3 = document.getElementsByName("p3");
+
+		function check(){
+			var aciertos = 0
+
+			texto.innerHTML = "" //para limpiar por si se ha pulsado anteriormente al botón
+			for(let i=0;i<r1.length;i++){
+				if(r1[i].checked==true){
+					texto.innerHTML += "Sus respuestas han sido: <b>"+ r1[i].value+"</b>"
+					if(r1[1].checked==true)
+						aciertos++
+				}
+			}
+			for (let i=0;i<r2.length;i++){
+				if (r2[i].checked==true){
+					texto.innerHTML +=", <b>"+ r2[i].value+"</b>"
+					if(r2[0].checked==true)
+						aciertos++
+				}
+			}
+			for (let i=0;i<r3.length;i++){
+				if (r3[i].checked==true){
+					texto.innerHTML += " y <b>"+ r3[i].value+"</b>."
+					if(r3[2].checked==true)
+						aciertos++
+				}
+			}
+			texto.innerHTML += " Por lo tanto, su puntuación es de <b>"+aciertos+"</b> puntos."
+		}
+
+	</script>
+</body>
+</html>
