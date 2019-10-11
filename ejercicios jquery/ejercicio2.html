@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="js/jQuery-3.4.1.js"></script>
+	<style type="text/css">
+		div{
+			position: relative;
+		}
+	</style>
+	<title></title>
+	<script>
+		$(document).ready(function(){
+			$("#hide").click(function(){
+				$("div").animate({
+					right: '-=5px',
+					top: '+=10px',
+					opacity: '+=0.1',
+					height: '+=15px',
+					width: '-=25px'
+				})
+			})
+			$("#show").click(function(){
+				$("p").slideToggle("slow");
+			});
+			$("#toggle").click(function(){
+				$("div").animate({
+					right:'0px',
+					top:'0px',
+					opacity:'1',
+					height:'100%',
+					width:'100%'
+				});
+				
+			});
+			function alertar(){
+				alert("se ha pulsado el botón")
+		}
+	});
+
+
+	</script>
+</head>
+<body>
+	<input type="button" id="hide" value="hide">
+	<input type="button" id="show" value="show">
+	<input type="button" id="toggle" value="toggle">
+	<p>texto de ejemplo</p>
+	<div style="background-color: red" position="relative">
+		<p>este texto debería moverse</p>
+	</div>
+
+</body>
+</html>
