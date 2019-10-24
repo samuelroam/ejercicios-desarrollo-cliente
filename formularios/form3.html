@@ -39,10 +39,12 @@
 
 		function check(){
 			var aciertos = 0
+			var chequeados=0
 
 			texto.innerHTML = "" //para limpiar por si se ha pulsado anteriormente al botón
 			for(let i=0;i<r1.length;i++){
 				if(r1[i].checked==true){
+					chequeados++
 					texto.innerHTML += "Sus respuestas han sido: <b>"+ r1[i].value+"</b>"
 					if(r1[1].checked==true)
 						aciertos++
@@ -50,6 +52,7 @@
 			}
 			for (let i=0;i<r2.length;i++){
 				if (r2[i].checked==true){
+					chequeados++
 					texto.innerHTML +=", <b>"+ r2[i].value+"</b>"
 					if(r2[0].checked==true)
 						aciertos++
@@ -58,10 +61,12 @@
 			for (let i=0;i<r3.length;i++){
 				if (r3[i].checked==true){
 					texto.innerHTML += " y <b>"+ r3[i].value+"</b>."
+					chequeados++
 					if(r3[2].checked==true)
 						aciertos++
 				}
 			}
+			if(chequeados===3){
 			texto.innerHTML += " Por lo tanto, su puntuación es de <b>"+aciertos+"</b> puntos.<br>"
 			if (aciertos===0)
 				texto.innerHTML += "No creo que hayas estudiado"
@@ -71,6 +76,9 @@
 				texto.innerHTML += "Vas por buen camino"
 			else
 				texto.innerHTML += "¡Eres un profesional de JavaScript!"
+			}else{
+				texto.innerHTML="Ha contestado "+chequeados+" casillas de 3, por favor, conteste todas las preguntas"
+			}
 		}
 
 	</script>
