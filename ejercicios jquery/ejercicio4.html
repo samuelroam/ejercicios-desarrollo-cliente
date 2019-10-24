@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="js/jQuery-3.4.1.js"></script>
+	<title></title>
+	<script>
+		var texto = document.getElementById("p2")
+		var txt1 = "texto normal"
+		var txt2 = $("<p></p>")
+		var txt3 = document.createElement("p")
+		txt3.innerHTML
+		$(document).ready(function(){
+			$("#show").click(function(){
+				$("#p2").append(texto,)
+			});
+
+
+			$("#p1").text("Texto modificado con jQuery");
+				txt.innerHTML = "texto añadido con innerHTML";
+				document.write("Texto normal generado por js");
+
+			$("#toggle").click(function(){
+				$("#p1").text("Primer párrafo modificado");
+				$("#p2").html("segundo párrafo <b>modificado</b>")
+				$("#enlace").attr({"href":"http://google.com"})
+			});
+
+			function alertar(){
+				alert("se ha pulsado el botón")
+		}
+	});
+
+
+	</script>
+</head>
+<body>
+	<input type="button" id="hide" value="hide">
+	<input type="button" id="show" value="show">
+	<input type="button" id="toggle" value="toggle">
+	<p id="p1">texto de ejemplo</p>
+	<p id="p2">esta <b>palabra</b> va en negrita<br></p>
+
+</body>
+</html>
