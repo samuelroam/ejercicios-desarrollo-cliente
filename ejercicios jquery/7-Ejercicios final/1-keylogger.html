@@ -4,21 +4,25 @@
     <title>Keylogger</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src="/../js/jQuery-3.4.1.js"></script>
+    <!--<script src="/../js/jQuery-3.4.1.js"></script>-->
     <script>
+        var letra = ""
         var texto = document.getElementById("textarea")
         $(document).ready(function(){
-            $(document).keypress(function(e){
-                let letra = e.key
+            $("#textarea").keypress(function(key){
+                letra += key.key;
                 
-                texto.value=texto.value + letra
-                texto.innerhtml=texto.value
-
-            })
-        })
+               
+                $("#salidaDeTexto").html(letra);
+            });
+            
+        });
     </script>
 </head>
 <body>
     <textarea id=textarea></textarea>
+    <div id="salidaDeTexto">
+
+    </div>
 </body>
 </html>
