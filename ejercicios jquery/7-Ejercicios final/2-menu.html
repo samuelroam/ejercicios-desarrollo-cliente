@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="/../js/jQuery-3.4.1.js"></script>
+    <script>
+      $(document).ready(function() {
+        let primero = document.getElementById("primero");
+        let segundo = document.getElementById("segundo");
+        let tercero = document.getElementById("tercero");
+        $(segundo).hide();
+        $(tercero).hide();
+
+        $("#1").click(function() {
+          $(segundo).hide();
+          $(tercero).hide();
+          $(primero).show();
+        });
+
+        $("#2").click(function() {
+          $(segundo).show();
+          $(primero).hide();
+          $(tercero).hide();
+        });
+
+        $("#3").click(function() {
+          $(tercero).show();
+          $(primero).hide();
+          $(segundo).hide();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="button" id="1" value="1" />
+    <input type="button" id="2" value="2" />
+    <input type="button" id="3" value="3" />
+    <div id="primero">
+      <h1>Primero apartado (Normal)</h1>
+      <p>
+        Nulla occaecat aliquip velit occaecat consectetur. Et tempor quis
+        laboris eu tempor aute ex cupidatat laboris minim. Nulla velit
+        exercitation anim do irure aliquip mollit laboris non voluptate esse ad
+        pariatur Lorem. Eu ea in mollit nostrud qui occaecat. Voluptate ad dolor
+        nostrud aute irure mollit esse dolore ad cillum excepteur. Magna
+        proident mollit aute et pariatur. Aute non officia do cillum et
+        exercitation exercitation magna pariatur sunt amet labore dolor.
+      </p>
+      <p>
+        Mollit cillum excepteur amet enim occaecat non ex quis nisi cillum
+        eiusmod elit. Commodo labore consequat proident reprehenderit id ullamco
+        ea. Aute fugiat labore magna ut qui ut pariatur. Laboris sunt
+        adipisicing consequat quis cupidatat sit ad nisi magna pariatur
+        consequat sunt mollit. Proident sunt ea occaecat ipsum excepteur Lorem
+        id eiusmod deserunt laboris id. Labore duis ipsum adipisicing id do.
+        Enim nostrud anim esse nisi velit ex laboris duis.
+      </p>
+      <p>
+        Nulla enim ea enim culpa tempor. Incididunt tempor culpa eiusmod dolore
+        aute amet do non mollit ipsum officia. Cupidatat irure est duis aute
+        velit dolor. Sunt deserunt mollit voluptate sunt. Id officia laboris
+        incididunt sit amet ipsum aute. Cupidatat ut pariatur fugiat in anim
+        Lorem consectetur ipsum eu ut. Voluptate anim sunt sint cillum voluptate
+        eiusmod incididunt.
+      </p>
+    </div>
+    <div id="segundo">
+      <h1><i>Segundo apartado (Cursiva)</i></h1>
+      <p>
+        <i
+          >Commodo adipisicing do veniam cillum. Mollit nulla irure ex duis sit
+          excepteur. Adipisicing ut duis velit tempor id qui eiusmod. Id quis
+          tempor enim ipsum ea culpa est eu fugiat aute dolore occaecat. Laboris
+          esse nisi sunt amet. Culpa occaecat sit ex aliqua laborum fugiat ea
+          consectetur occaecat exercitation minim.</i
+        >
+      </p>
+      <p>
+        <i
+          >Laborum cupidatat sunt commodo reprehenderit ut exercitation tempor
+          pariatur irure ad cillum. Ut Lorem mollit culpa sit consequat dolore
+          adipisicing id voluptate. Incididunt proident eu aliqua non non. Velit
+          aliquip excepteur enim aliqua laborum ad labore. Non aliqua do ex
+          officia ad ad irure. Officia non nulla tempor aute cupidatat
+          consectetur.</i
+        >
+      </p>
+      <p>
+        <i
+          >Eiusmod duis mollit et amet pariatur labore veniam aliqua ad. Velit
+          aliquip qui nulla reprehenderit sint aliqua consectetur cillum
+          consequat magna. Aliqua sit enim nostrud deserunt non eiusmod ullamco
+          commodo ut laborum. Minim adipisicing eu quis et ipsum laborum id
+          est.</i
+        >
+      </p>
+    </div>
+    <div id="tercero">
+      <h1><b>Tercer apartado (Negrita)</b></h1>
+      <p>
+        <b
+          >Ad non sint labore in nisi ad ipsum dolor est occaecat. Officia
+          reprehenderit tempor labore cupidatat aliquip sunt deserunt. Laborum
+          dolore cupidatat anim non et nostrud ut excepteur amet nulla occaecat
+          qui proident ut. Lorem consectetur nisi est mollit et enim velit anim
+          nostrud labore. Consectetur commodo occaecat incididunt sint laborum
+          anim ullamco laboris laborum amet amet eiusmod aliquip. Anim commodo
+          ipsum esse dolor excepteur.</b
+        >
+      </p>
+      <p>
+        <b
+          >Eu esse dolore quis eiusmod exercitation aute id quis deserunt. Eu
+          esse anim voluptate ipsum occaecat reprehenderit nulla nostrud.
+          Eiusmod velit velit proident esse id. Pariatur cillum duis consequat
+          exercitation irure aliqua cupidatat do cillum proident. Labore
+          pariatur velit enim culpa anim mollit.</b
+        >
+      </p>
+      <p>
+        <b
+          >Dolor officia nisi Lorem non laborum ea enim. Id ea aliqua minim
+          adipisicing fugiat mollit. Qui cillum dolor quis pariatur magna est
+          dolor.</b
+        >
+      </p>
+    </div>
+  </body>
+</html>
