@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <title>Document</title>
+    <script>
+         $(document).ready(function() {
+            $("#getjquery").click(function (){
+            $.get('https://swapi.co/api/people/1',function(data, status){
+                console.log("Data: "+data+"\nStatus: "+status)
+                console.log(data)
+                let datos=JSON.parse(data)
+                console.log(datos)                
+            })
+        })
+    })
+    </script>
+</head>
+<body>
+    <label>Nombre</label><input type="text" id="nombre">
+    <label>Datos</label><input type="text" id="datos">
+    <select name="lugar" id="lugar">
+        <option value="people">Personaje</option>
+        <option value="planet">Planeta</option>
+        <option value="film">Película</option>
+    </select>
+    <br>
+    <button id="getjs">get js</button>
+    <button id="getjquery">get jquery</button>
+    <button id="postjs">post js</button>
+    <button id=postjquery>post jquery</button>
+</body>
+</html>

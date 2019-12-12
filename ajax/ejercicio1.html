@@ -11,10 +11,18 @@
         //con JQuery
     $(document).ready(function() {
             $("button").click(function (){
-            $.get('https://datos.aramendi.eu/datos.json',function(data, status){
+            $.get('https://swapi.co/api/people/1',function(data, status){
+                /*console.log(0)
                 console.log("Data: "+data+"\nStatus: "+status)
+                console.log(1)*/
+                console.log(data)
                 for (let i=0; i<data.length;i++){
+                    console.log(i)
+                    let datos=JSON.parse(data[i])
+                    console.log(datos)
+                    console.log(data)
                     console.log(data[i])
+                    console.log(i)
                 }
             })
         })
@@ -23,7 +31,7 @@
 
         //con JavaScript
          var request = new XMLHttpRequest()
-         request.open('GET', 'https://datos.aramendi.eu/datos.json',true)
+         request.open('GET', 'https://swapi.co/api/people/1',true)
          request.onload = function() {
              var data = JSON.parse(this.response)
              if (request.status >= 200 && request.status < 400) {
