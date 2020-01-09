@@ -6,13 +6,32 @@
     <title>Document</title>
     <script>
          $(document).ready(function() {
+            document.getElementById('all').innerHTML+="Los datos sacados con jQuery van aqui: <br>";
+             
             $("#getjquery").click(function (){
-            $.get('https://swapi.co/api/people/1',function(data, status){
+                let x = document.getElementById('nombre').value
+             let y = document.getElementById('lugar').value
+             console.log(x+y)
+            $.get('https://swapi.co/api/'+y+'/'+x,function(data, status){
                 console.log("Data: "+data+"\nStatus: "+status)
                 console.log(data)
-                let datos=JSON.parse(data)
-                console.log(datos)                
+                /*let datos=JSON.parse(data)
+                console.log(datos)*/
+                document.getElementById('all').innerHTML+="Los datos sacados con jQuery van aqui: <br>";
+                document.getElementById('all').innerHTML+="Nombre: "+data.name+"<br>";
+                document.getElementById('all').innerHTML+="Altura: "+data.height+"<br>";
+                document.getElementById('all').innerHTML+="Peso: "+data.mass+"<br>";
+                document.getElementById('all').innerHTML+="Color de pelo: "+data.hair_color+"<br>";
+                document.getElementById('all').innerHTML+="Color de piel: "+data.skin_color+"<br>";
+                document.getElementById('all').innerHTML+="Color de ojos: "+data.eye_color+"<br>";
+                document.getElementById('all').innerHTML+="Genero: "+data.gender+"<br>";
+                document.getElementById('all').innerHTML+="año de nacimiento: "+data.birth_year+"<br>";
+                document.getElementById('all').innerHTML+="Planeta natal: "+data.homeworld+"<br>";
+                document.getElementById('all').innerHTML+="Peliculas: "+data.films+"<br>";
+
+
             })
+
         })
     })
     </script>
@@ -22,13 +41,53 @@
     <label>Datos</label><input type="text" id="datos">
     <select name="lugar" id="lugar">
         <option value="people">Personaje</option>
-        <option value="planet">Planeta</option>
+        <option value="planets">Planeta</option>
         <option value="film">Película</option>
     </select>
     <br>
-    <button id="getjs">get js</button>
+    <button id="getjs" onclick="getjs()">get js</button>
     <button id="getjquery">get jquery</button>
     <button id="postjs">post js</button>
     <button id=postjquery>post jquery</button>
+
+    <p id='all'></p>
+
+
+
+
+
+    <script>
+     //con JavaScript
+function getjs(){
+     var request = new XMLHttpRequest()
+            let x = document.getElementById('nombre').value
+             let y = document.getElementById('lugar').value
+         request.open('GET', 'https://swapi.co/api/'+y+'/'+x,true)
+         request.onload = function() {
+             var data = JSON.parse(this.response)
+             if (request.status >= 200 && request.status < 400) {
+                 console.log(data)
+                 document.getElementById('all').innerHTML+="Los datos sacados con js van aqui: <br>";
+                 document.getElementById('all').innerHTML+="Nombre: "+data.name+"<br>";
+                document.getElementById('all').innerHTML+="Altura: "+data.height+"<br>";
+                document.getElementById('all').innerHTML+="Peso: "+data.mass+"<br>";
+                document.getElementById('all').innerHTML+="Color de pelo: "+data.hair_color+"<br>";
+                document.getElementById('all').innerHTML+="Color de piel: "+data.skin_color+"<br>";
+                document.getElementById('all').innerHTML+="Color de ojos: "+data.eye_color+"<br>";
+                document.getElementById('all').innerHTML+="Genero: "+data.gender+"<br>";
+                document.getElementById('all').innerHTML+="año de nacimiento: "+data.birth_year+"<br>";
+                document.getElementById('all').innerHTML+="Planeta natal: "+data.homeworld+"<br>";
+                document.getElementById('all').innerHTML+="Peliculas: "+data.films+"<br>";
+
+
+             } else {
+                 console.log('error')
+             }
+         }
+         request.send()
+
+}
+    </script>
+    
 </body>
 </html>
