@@ -6,34 +6,55 @@
     <title>Document</title>
     <script>
          $(document).ready(function() {
-            document.getElementById('all').innerHTML+="Los datos sacados con jQuery van aqui: <br>";
-             
+                    
+                    
+                    
+                    
+                    //metodo get con jquery
+            //cuando se pulsa el botón
             $("#getjquery").click(function (){
-                let x = document.getElementById('nombre').value
-             let y = document.getElementById('lugar').value
-             console.log(x+y)
-            $.get('https://swapi.co/api/'+y+'/'+x,function(data, status){
-                console.log("Data: "+data+"\nStatus: "+status)
-                console.log(data)
-                /*let datos=JSON.parse(data)
-                console.log(datos)*/
-                document.getElementById('all').innerHTML+="Los datos sacados con jQuery van aqui: <br>";
-                document.getElementById('all').innerHTML+="Nombre: "+data.name+"<br>";
-                document.getElementById('all').innerHTML+="Altura: "+data.height+"<br>";
-                document.getElementById('all').innerHTML+="Peso: "+data.mass+"<br>";
-                document.getElementById('all').innerHTML+="Color de pelo: "+data.hair_color+"<br>";
-                document.getElementById('all').innerHTML+="Color de piel: "+data.skin_color+"<br>";
-                document.getElementById('all').innerHTML+="Color de ojos: "+data.eye_color+"<br>";
-                document.getElementById('all').innerHTML+="Genero: "+data.gender+"<br>";
-                document.getElementById('all').innerHTML+="año de nacimiento: "+data.birth_year+"<br>";
-                document.getElementById('all').innerHTML+="Planeta natal: "+data.homeworld+"<br>";
-                document.getElementById('all').innerHTML+="Peliculas: "+data.films+"<br>";
-
-
+                //recoge valores de los input
+                let nombre = document.getElementById('nombre').value
+                let lugar = document.getElementById('lugar').value
+                //ejecuta el get, con los valores de los input para completar la url de la api
+                $.get('https://swapi.co/api/'+lugar+'/'+nombre,function(data, status){
+                    console.log("Data: "+data+"\nStatus: "+status)
+                    //muestra los resultados obtenidos por pantalla, 
+                    document.getElementById('all').innerHTML+="Los datos sacados con el método get jQuery van aqui: <br>";
+                    document.getElementById('all').innerHTML+="Nombre: "+data.name+"<br>";
+                    document.getElementById('all').innerHTML+="Altura: "+data.height+"<br>";
+                    document.getElementById('all').innerHTML+="Peso: "+data.mass+"<br>";
+                    document.getElementById('all').innerHTML+="Color de pelo: "+data.hair_color+"<br>";
+                    document.getElementById('all').innerHTML+="Color de piel: "+data.skin_color+"<br>";
+                    document.getElementById('all').innerHTML+="Color de ojos: "+data.eye_color+"<br>";
+                    document.getElementById('all').innerHTML+="Genero: "+data.gender+"<br>";
+                    document.getElementById('all').innerHTML+="año de nacimiento: "+data.birth_year+"<br>";
+                    document.getElementById('all').innerHTML+="Planeta natal: "+data.homeworld+"<br>";
+                    document.getElementById('all').innerHTML+="Peliculas: "+data.films+"<br>";
+                })
             })
-
+            //metodo post con jquery
+            //al hacer click en el botón
+            $("#postjquery").click(function(){
+                //recoge valores de los input
+                let nombre = document.getElementById('nombre').value
+                let datos = document.getElementById('datos').value
+                //envía los datos a la url mencionada
+                $.post("https://my-json-server.typicode.com/typicode/demo/posts", {
+                    id: nombre, title: datos
+                },
+                //muestra por pantalla la información enviada
+                function(data, status){
+                    console.log("Información: " + data + "\nEstado: " + status);
+                    console.log(data)
+                    document.getElementById('all').innerHTML+='los datos introducidos por el método post de jQuery van aquí'
+                    document.getElementById('all').innerHTML+='"id"= '+data.id
+                    document.getElementById('all').innerHTML+='<br>'
+                    document.getElementById('all').innerHTML+='titulo= '+data.title
+                    document.getElementById('all').innerHTML+='<br>'
+                });
+            });
         })
-    })
     </script>
 </head>
 <body>
@@ -47,7 +68,7 @@
     <br>
     <button id="getjs" onclick="getjs()">get js</button>
     <button id="getjquery">get jquery</button>
-    <button id="postjs">post js</button>
+    <button id="postjs" onclick="postjs()"> post js</button>
     <button id=postjquery>post jquery</button>
 
     <p id='all'></p>
@@ -55,38 +76,71 @@
 
 
 
-
+ 
     <script>
-     //con JavaScript
-function getjs(){
-     var request = new XMLHttpRequest()
+        //metodo get con JavaScript
+        function getjs(){
+            var request = new XMLHttpRequest()
+            //recoge valores de los input
             let x = document.getElementById('nombre').value
-             let y = document.getElementById('lugar').value
-         request.open('GET', 'https://swapi.co/api/'+y+'/'+x,true)
-         request.onload = function() {
-             var data = JSON.parse(this.response)
-             if (request.status >= 200 && request.status < 400) {
-                 console.log(data)
-                 document.getElementById('all').innerHTML+="Los datos sacados con js van aqui: <br>";
-                 document.getElementById('all').innerHTML+="Nombre: "+data.name+"<br>";
-                document.getElementById('all').innerHTML+="Altura: "+data.height+"<br>";
-                document.getElementById('all').innerHTML+="Peso: "+data.mass+"<br>";
-                document.getElementById('all').innerHTML+="Color de pelo: "+data.hair_color+"<br>";
-                document.getElementById('all').innerHTML+="Color de piel: "+data.skin_color+"<br>";
-                document.getElementById('all').innerHTML+="Color de ojos: "+data.eye_color+"<br>";
-                document.getElementById('all').innerHTML+="Genero: "+data.gender+"<br>";
-                document.getElementById('all').innerHTML+="año de nacimiento: "+data.birth_year+"<br>";
-                document.getElementById('all').innerHTML+="Planeta natal: "+data.homeworld+"<br>";
-                document.getElementById('all').innerHTML+="Peliculas: "+data.films+"<br>";
+            let y = document.getElementById('lugar').value
+            //hace la petición get completando la url con los valores de las variables
+            request.open('GET', 'https://swapi.co/api/'+y+'/'+x,true)
+            request.onload = function() {
+                var data = JSON.parse(this.response)
+                //si la petición no da error, muestra los resultados por pantalla
+                if (request.status >= 200 && request.status < 400) {
+                    console.log(data)
+                    document.getElementById('all').innerHTML+="Los datos sacados con js van aqui: <br>";
+                    document.getElementById('all').innerHTML+="Nombre: "+data.name+"<br>";
+                    document.getElementById('all').innerHTML+="Altura: "+data.height+"<br>";
+                    document.getElementById('all').innerHTML+="Peso: "+data.mass+"<br>";
+                    document.getElementById('all').innerHTML+="Color de pelo: "+data.hair_color+"<br>";
+                    document.getElementById('all').innerHTML+="Color de piel: "+data.skin_color+"<br>";
+                    document.getElementById('all').innerHTML+="Color de ojos: "+data.eye_color+"<br>";
+                    document.getElementById('all').innerHTML+="Genero: "+data.gender+"<br>";
+                    document.getElementById('all').innerHTML+="año de nacimiento: "+data.birth_year+"<br>";
+                    document.getElementById('all').innerHTML+="Planeta natal: "+data.homeworld+"<br>";
+                    document.getElementById('all').innerHTML+="Peliculas: "+data.films+"<br>";
+
+                } else {
+                    //si no hay respuesta satisfactoria, pondrá error por consola
+                    console.log('error')
+                }
+            }
+            request.send()
+
+        }
 
 
-             } else {
-                 console.log('error')
-             }
-         }
-         request.send()
+    
+        //metodo post con js
+        function postjs(){
+            var request = new XMLHttpRequest();
+            //recoge los valores del input
+            let nombre = document.getElementById('nombre').value
+            let datos = document.getElementById('datos').value
+            //envía los datos a la url mencionada
+            request.open("POST", "https://my-json-server.typicode.com/typicode/demo/posts", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send("id="+nombre+"&title="+datos);
+            request.onreadystatechange = function() {
+                 //si no da error, muestra por pantalla los datos enviados
+                if (this.readyState == 4 && this.status == 201) {
+                    let jsPost = JSON.parse(this.responseText);
+                    document.getElementById("all").innerHTML += jsPost.id+'<br>'
+                    document.getElementById("all").innerHTML += jsPost.title+'<br>'
+                    document.getElementById("all").innerHTML += this.responseText+'<br>'
+                } else {
+                    //con el control del error, lo envía 3 o 4 veces la primera vez que se pulsa el botón, el resto de veces lo envía apropiadamente
+                    console.log("error")
+                }
+            }
+        }
 
-}
+
+
+
     </script>
     
 </body>
