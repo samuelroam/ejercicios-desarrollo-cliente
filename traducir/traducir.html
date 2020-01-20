@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<meta charset="UTF-8">
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery.translate.js"></script>
 	<script src="diccionario.js"></script>
-	<!--<script type="text/javascript" src="translate.jquery.json"></script>-->
-
-
-	
+	<script src="funciones.js"></script>
 </head>
 <body>
 
@@ -16,11 +14,11 @@
 <p class="trn" data-trn-key="texto principal">No estoy entendiendo esta parte de la asignatura</p>
 <p class="trn" data-trn-key="correccion">Vale, por ahora ya me funciona</p>
 <p class="trn" data-trn-key="aclaracion">No hablo euskera, asi que me salto esa parte, pero quizá lo haga en otro idioma</p>
+<p class="trn" data-trn-key="tardio">La base es de un ejercicio hecho hace tiempo, cuando empezamos con el tema de traducción</p>
 
-<input type="image" src="esp.jpg" onclick="cambiaresp()" style="width: 5vw">
-<input type="image" src="ing.png" onclick="cambiaraingles()"style="width: 5vw">
-<input type="image" src="ita.jpg" onclick="cambiarita()" style="width: 5vw">
-
+<input type="button" value="Español" src="esp.jpg" onclick="cambiaresp()" style="width: 5vw">
+<input type="button" value="Ingles" src="ing.png" onclick="cambiaraingles()"style="width: 5vw">
+<input type="button" value="Italiano" src="ita.jpg" onclick="cambiarita()" style="width: 5vw">
 
 </body>
 </html>
